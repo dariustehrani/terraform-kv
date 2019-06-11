@@ -2,7 +2,6 @@
 
 This repository is used for demo purposes only.
 
-
 # related links
 
 ### Terraform Backend config on Blob Storage
