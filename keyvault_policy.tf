@@ -1,4 +1,4 @@
-resource "azurerm_key_vault_access_policy" "devops-access-policy-devops" {
+resource "azurerm_key_vault_access_policy" "kv-access-policy-devops" {
   vault_name          = "${azurerm_key_vault.kv.name}"
   resource_group_name = "${azurerm_resource_group.infra.name}"
 
