@@ -1,6 +1,6 @@
 project_name        = "terraformkv"
 location            = "westeurope"
-resource_group_name = "terraform-kv"
+resource_group_name = "terraformkv"
 
 tags = {
   environment = "lab"

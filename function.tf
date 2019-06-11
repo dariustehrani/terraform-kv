@@ -9,7 +9,7 @@ resource "azurerm_storage_account" "function-sa" {
 }
 
 resource "azurerm_app_service_plan" "function-plan" {
-  name                = "${var.project_name}-service-plan"
+  name                = "${var.project_name}-${random_id.project-id.hex}-plan"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.infra.name}"
   kind                = "FunctionApp"
@@ -23,7 +23,7 @@ resource "azurerm_app_service_plan" "function-plan" {
 }
 
 resource "azurerm_function_app" "function-app" {
-  name                      = "${var.project_name}-function"
+  name                      = "${var.project_name}-${random_id.project-id.hex}"
   location                  = "${var.location}"
   resource_group_name       = "${azurerm_resource_group.infra.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.function-plan.id}"
