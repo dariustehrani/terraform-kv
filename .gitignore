@@ -1,0 +1,21 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# manually created plans
+tfplan
+plantf
+.plan
+
+# secrets
+.credentials
+.pem
+.ppk
+.out
+.id
+id_rsa
+
+.DS_Store

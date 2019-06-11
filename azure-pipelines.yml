@@ -1,0 +1,25 @@
+# Azure Terraform Pipeline using bash.
+# azure-pipelines.yml
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+trigger:
+- master
+
+variables:
+ PLAN: plan.tfplan
+ TF_VAR_FILE: test.tf-test
+
+steps:
+- bash: terraform init && terraform validate -var-file=$TF_VAR_FILE -input=false
+  displayName: terraform-validate
+  workingDirectory: $(Build.SourcesDirectory)
+  failOnStderr: true
+  # env:  # mapping of environment variables to add
+
+- bash: terraform init && terraform plan -var-file=$TF_VAR_FILE -input=false -out=$PLAN
+  displayName: terraform-plan
+  workingDirectory: $(Build.SourcesDirectory)
+  failOnStderr: true
+  # env:  # mapping of environment variables to add
