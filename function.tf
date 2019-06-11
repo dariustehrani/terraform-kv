@@ -1,5 +1,5 @@
 resource "azurerm_storage_account" "function-sa" {
-  name                     = "${var.project_name}-function-sa"
+  name                     = "${var.project_name}functionsa"
   resource_group_name      = "${var.resource_group_name}"
   location                 = "${var.location}"
   account_tier             = "Standard"
@@ -31,7 +31,7 @@ resource "azurerm_function_app" "function-app" {
 
   identity {
     type = "SystemAssigned"
-  } 
+  }
 
   tags = "${var.tags}"
 }

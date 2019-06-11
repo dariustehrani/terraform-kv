@@ -1,10 +1,10 @@
-project_name = "terraform-kv"
-location = "westeurope"
-resource_group_name = "terraform-kb"
+project_name        = "terraformkv"
+location            = "westeurope"
+resource_group_name = "terraform-kv"
 
 tags = {
-    environment = "lab"
-    project = "terraform-kv"
-    cost_center = "4711"
+  environment = "lab"
+  project     = "terraform-kv"
+  cost_center = "4711"
 
 }

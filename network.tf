@@ -10,8 +10,7 @@ resource "azurerm_virtual_network" "infra" {
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.infra.name}"
 
-  service_endpoints   = ["Microsoft.AzureActiveDirectory"," Microsoft.AzureCosmosDB", "Microsoft.KeyVault", "Microsoft.Storage"]
-  tags                = "${var.tags}"
+  tags = "${var.tags}"
 }
 
 resource "azurerm_subnet" "infra" {
@@ -19,4 +18,6 @@ resource "azurerm_subnet" "infra" {
   resource_group_name  = "${azurerm_resource_group.infra.name}"
   virtual_network_name = "${azurerm_virtual_network.infra.name}"
   address_prefix       = "10.0.2.0/24"
+  service_endpoints    = ["Microsoft.AzureActiveDirectory", "Microsoft.AzureCosmosDB", "Microsoft.KeyVault", "Microsoft.Storage"]
+
 }

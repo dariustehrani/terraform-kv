@@ -20,7 +20,7 @@ resource "azurerm_key_vault_access_policy" "kv-access-policy-app1" {
   resource_group_name = "${var.resource_group_name}"
 
   tenant_id = "${data.azurerm_client_config.current.tenant_id}"
-  object_id = "${lookup(azurerm_function_app.function-app.identity[0],"principal_id")}"
+  object_id = "${lookup(azurerm_function_app.function-app.identity[0], "principal_id")}"
   key_permissions = [
     "get",
   ]
