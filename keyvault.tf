@@ -1,7 +1,7 @@
 resource "azurerm_key_vault" "kv" {
   name                = "${var.project_name}-kv"
   location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
   tenant_id           = "${data.azurerm_client_config.current.tenant_id}"
 
   enabled_for_disk_encryption = true

@@ -1,6 +1,6 @@
 resource "azurerm_storage_account" "function-sa" {
   name                     = "${var.project_name}functionsa"
-  resource_group_name      = "${var.resource_group_name}"
+  resource_group_name      = "${azurerm_resource_group.infra.name}"
   location                 = "${var.location}"
   account_tier             = "Standard"
   account_replication_type = "LRS"
@@ -11,7 +11,7 @@ resource "azurerm_storage_account" "function-sa" {
 resource "azurerm_app_service_plan" "function-plan" {
   name                = "${var.project_name}-service-plan"
   location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
   kind                = "FunctionApp"
 
   sku {
@@ -25,7 +25,7 @@ resource "azurerm_app_service_plan" "function-plan" {
 resource "azurerm_function_app" "function-app" {
   name                      = "${var.project_name}-function"
   location                  = "${var.location}"
-  resource_group_name       = "${var.resource_group_name}"
+  resource_group_name       = "${azurerm_resource_group.infra.name}"
   app_service_plan_id       = "${azurerm_app_service_plan.function-plan.id}"
   storage_connection_string = "${azurerm_storage_account.function-sa.primary_connection_string}"
 

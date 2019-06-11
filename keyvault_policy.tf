@@ -1,6 +1,6 @@
 resource "azurerm_key_vault_access_policy" "devops-access-policy-devops" {
   vault_name          = "${azurerm_key_vault.kv.name}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
 
   tenant_id = "${data.azurerm_client_config.current.tenant_id}"
   object_id = "${data.azurerm_client_config.current.service_principal_object_id}"
@@ -17,7 +17,7 @@ resource "azurerm_key_vault_access_policy" "devops-access-policy-devops" {
 
 resource "azurerm_key_vault_access_policy" "kv-access-policy-app1" {
   vault_name          = "${azurerm_key_vault.kv.name}"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
 
   tenant_id = "${data.azurerm_client_config.current.tenant_id}"
   object_id = "${lookup(azurerm_function_app.function-app.identity[0], "principal_id")}"
