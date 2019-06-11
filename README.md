@@ -1,9 +1,9 @@
-# infra4711-tf-web
+# terraform-kv
 
 This repository is used for demo purposes only.
 
-# related links
 
+# related links
 
 ### Terraform Backend config on Blob Storage
 https://docs.microsoft.com/en-us/azure/terraform/terraform-backend
