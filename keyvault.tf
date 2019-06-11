@@ -19,8 +19,8 @@ resource "azurerm_key_vault" "kv" {
   tags = "${var.tags}"
 }
 
-resource "azuread_application" "kv-identity" {
-  name                       = "${var.project_name}-kv-id"
+resource "azuread_application" "kv-app" {
+  name                       = "${var.project_name}-kv-app"
   homepage                   = "https://${var.project_name}"
   identifier_uris            = ["https://${var.project_name}"]
   reply_urls                 = ["https://${var.project_name}"]
