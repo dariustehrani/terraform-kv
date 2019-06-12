@@ -33,5 +33,10 @@ resource "azurerm_function_app" "function-app" {
     type = "SystemAssigned"
   }
 
+  app_settings = {
+    "KEY_VAULT_URI" = "${azurerm_key_vault.kv.vault_uri}"
+    }
+  
+
   tags = "${var.tags}"
 }

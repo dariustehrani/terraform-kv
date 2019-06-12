@@ -9,6 +9,7 @@ This repository is used for demo purposes only.
 ### Azure Key Vault
 https://docs.microsoft.com/en-us/azure/key-vault/quick-create-cli
 
-## Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB
+## demo app resources
 https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-nodejs-application
+https://github.com/Azure-Samples/app-service-msi-keyvault-node
 
