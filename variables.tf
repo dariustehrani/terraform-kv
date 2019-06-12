@@ -15,3 +15,8 @@ variable "tags" {
   description = "A map of the tags to use for the resources that are deployed"
   type        = "map"
 }
+
+variable "devops_sp" {
+  description = "sp allowed to access the kv"
+  type = "string"
+}

@@ -3,12 +3,13 @@ resource "azurerm_key_vault_access_policy" "kv-access-policy-devops" {
   resource_group_name = "${azurerm_resource_group.infra.name}"
 
   tenant_id = "${data.azurerm_client_config.current.tenant_id}"
-  object_id = "${data.azurerm_client_config.current.service_principal_object_id}"
+  object_id = "${var.devops_sp}"
 
   key_permissions = [
     "create",
     "get",
     "list",
+    "delete",
   ]
 
   secret_permissions = [
