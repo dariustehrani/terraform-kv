@@ -32,6 +32,11 @@ resource "azurerm_function_app" "function-app" {
   identity {
     type = "SystemAssigned"
   }
+  
+  site_config { 
+    linux_fx_version = "DOCKER|(golang:latest)"
+  }
+    
 
   app_settings = {
     "KEY_VAULT_URI" = "${azurerm_key_vault.kv.vault_uri}"
