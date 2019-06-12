@@ -10,6 +10,8 @@ tfplan
 plantf
 .plan
 
+*.tfvars
+
 # secrets
 .credentials
 .pem
