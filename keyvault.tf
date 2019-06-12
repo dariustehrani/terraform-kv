@@ -4,7 +4,7 @@ resource "azurerm_key_vault" "kv" {
   resource_group_name = "${azurerm_resource_group.infra.name}"
   tenant_id           = "${data.azurerm_client_config.current.tenant_id}"
 
-  enabled_for_disk_encryption = true
+  enabled_for_disk_encryption = false
 
   sku {
     name = "standard"
