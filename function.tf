@@ -32,16 +32,16 @@ resource "azurerm_function_app" "function-app" {
   identity {
     type = "SystemAssigned"
   }
-  
-  site_config { 
+
+  site_config {
     linux_fx_version = "DOCKER|(dariustehrani/terraform-kv:latest)"
   }
-    
+
 
   app_settings = {
     "KEY_VAULT_URI" = "${azurerm_key_vault.kv.vault_uri}"
-    }
-  
+  }
+
 
   tags = "${var.tags}"
 }

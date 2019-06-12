@@ -13,6 +13,22 @@ resource "azurerm_key_vault" "kv" {
   tags = "${var.tags}"
 }
 
+resource "azurerm_key_vault_key" "kv-key" {
+  name         = "generated-certificate"
+  key_vault_id = "${azurerm_key_vault.kv.id}"
+  key_type     = "RSA"
+  key_size     = 2048
+
+  key_opts = [
+    "decrypt",
+    "encrypt",
+    "sign",
+    "unwrapKey",
+    "verify",
+    "wrapKey",
+  ]
+}
+
 resource "azuread_application" "kv-app" {
   name                       = "${var.project_name}-${random_id.project-id.hex}-kv"
   homepage                   = "https://${var.project_name}-${random_id.project-id.hex}"
