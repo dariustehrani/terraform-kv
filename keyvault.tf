@@ -10,14 +10,6 @@ resource "azurerm_key_vault" "kv" {
     name = "standard"
   }
 
-/*
-  network_acls {
-    virtual_network_subnet_ids = ["${azurerm_subnet.infra.id}"]
-    default_action             = "Deny"
-    bypass                     = "AzureServices"
-  }
-*/
-
   tags = "${var.tags}"
 }
 

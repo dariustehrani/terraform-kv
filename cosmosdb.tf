@@ -35,9 +35,3 @@ resource "azurerm_key_vault_secret" "cosmos-db-secret" {
   tags = "${var.tags}"
 }
 
-output "cosmosdb_mongodb_connection_string" {
-  value     = "mongodb://${azurerm_cosmosdb_account.cosmosdb.name}:${azurerm_cosmosdb_account.cosmosdb.primary_master_key}@${azurerm_cosmosdb_account.cosmosdb.name}.documents.azure.com:10255/?ssl=true&replicaSet=globaldb"
-  sensitive = true
-}
-
-

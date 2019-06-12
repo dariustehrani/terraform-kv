@@ -8,10 +8,14 @@ resource "azurerm_key_vault_access_policy" "kv-access-policy-devops" {
   key_permissions = [
     "create",
     "get",
+    "list",
   ]
 
   secret_permissions = [
     "set",
+    "get",
+    "delete",
+    "list",
   ]
 }
 
