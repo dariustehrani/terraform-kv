@@ -11,6 +11,8 @@ plantf
 .plan
 
 .tfvars
+*.tfvars
+terraform.tfvars
 
 # secrets
 .credentials
