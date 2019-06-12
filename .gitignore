@@ -25,6 +25,9 @@ id_rsa
 
 # dependencies
 /demo_app/node_modules
+/demo_app/node_modules/
+/demo_app/node_modules/*
+
 
 # IDEs and editors
 /.idea
