@@ -13,13 +13,6 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   tags = "${var.tags}"
 }
 
-/*
-data "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "${azurerm_cosmosdb_account.cosmosdb.name}"
-  resource_group_name = "${azurerm_resource_group.infra.name}"
-}
-*/
-
 resource "azurerm_cosmosdb_sql_database" "cosmosdb-sql-database" {
   name                = "${azurerm_cosmosdb_account.cosmosdb.name}-sql"
   resource_group_name = "${azurerm_resource_group.infra.name}"
