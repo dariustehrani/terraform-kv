@@ -1,5 +1,5 @@
 resource "azurerm_cosmosdb_account" "cosmosdb" {
-  name                = "${var.project_name}-cosmosdb}"
+  name                = "${var.project_name}-cosmosdb"
   resource_group_name = "${azurerm_resource_group.infra.name}"
   location            = "${azurerm_resource_group.infra.location}"
   offer_type          = "Standard"
@@ -13,15 +13,17 @@ resource "azurerm_cosmosdb_account" "cosmosdb" {
   tags = "${var.tags}"
 }
 
+/*
 data "azurerm_cosmosdb_account" "cosmosdb" {
   name                = "${azurerm_cosmosdb_account.cosmosdb.name}"
   resource_group_name = "${azurerm_resource_group.infra.name}"
 }
+*/
 
 resource "azurerm_cosmosdb_sql_database" "cosmosdb-sql-database" {
   name                = "${azurerm_cosmosdb_account.cosmosdb.name}-sql"
-  resource_group_name = "${data.azurerm_cosmosdb_account.cosmosdb.resource_group_name}"
-  account_name        = "${data.azurerm_cosmosdb_account.cosmosdb.name}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
+  account_name        = "${azurerm_cosmosdb_account.cosmosdb.name}"
 }
 
 resource "azurerm_key_vault_secret" "cosmos-db-connection-string" {
