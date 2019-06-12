@@ -19,12 +19,12 @@ plantf
 id_rsa
 
 # compiled output
-demo_app/dist
-demo_app/tmp
-demo_app/out-tsc
+**/demo_app/dist
+**/demo_app/tmp
+**/demo_app/out-tsc
 
 # dependencies
-demo_app/node_modules
+**/demo_app/node_modules
 
 # IDEs and editors
 /.idea
