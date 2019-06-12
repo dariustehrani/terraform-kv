@@ -34,7 +34,7 @@ resource "azurerm_function_app" "function-app" {
   }
 
   site_config {
-    linux_fx_version = "DOCKER|(dariustehrani/terraform-kv:latest)"
+    linux_fx_version = "DOCKER|dariustehrani/terraform-kv:latest"
   }
 
 
