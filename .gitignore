@@ -10,7 +10,7 @@ tfplan
 plantf
 .plan
 
-*.tfvars
+.tfvars
 
 # secrets
 .credentials
