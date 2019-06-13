@@ -28,6 +28,8 @@ id_rsa
 **/demo_app/out-tsc
 
 # dependencies
+node_modules/
+/node_modules/*
 /demo_app/node_modules
 /demo_app/node_modules/
 /demo_app/node_modules/*
