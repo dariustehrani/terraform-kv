@@ -33,6 +33,7 @@ resource "azurerm_app_service" "app" {
 
   app_settings = {
     "KEY_VAULT_URI" = "${azurerm_key_vault.kv.vault_uri}"
+    "COSMOSDB_URI"  = "https://${azurerm_cosmosdb_account.cosmosdb.name}.documents.azure.com:443/"
     "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"
 }
 
