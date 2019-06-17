@@ -7,20 +7,20 @@ resource "azurerm_app_service_plan" "app-service-plan" {
   kind                = "Linux"
   reserved            = true
 
-sku {
+  sku {
     tier = "PremiumV2"
     size = "P1v2"
 
-}
+  }
 
   tags = "${var.tags}"
 }
 
 resource "azurerm_app_service" "app" {
-  name                      = "${var.project_name}-${random_id.project-id.hex}"
-  location                  = "${var.location}"
-  resource_group_name       = "${azurerm_resource_group.infra.name}"
-  app_service_plan_id       = "${azurerm_app_service_plan.app-service-plan.id}"
+  name                = "${var.project_name}-${random_id.project-id.hex}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.infra.name}"
+  app_service_plan_id = "${azurerm_app_service_plan.app-service-plan.id}"
 
   identity {
     type = "SystemAssigned"
@@ -32,10 +32,11 @@ resource "azurerm_app_service" "app" {
 
 
   app_settings = {
-    "KEY_VAULT_URI" = "${azurerm_key_vault.kv.vault_uri}"
-    "COSMOSDB_URI"  = "https://${azurerm_cosmosdb_account.cosmosdb.name}.documents.azure.com:443/"
-    "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"
-}
+    "KEY_VAULT_URI"                      = "${azurerm_key_vault.kv.vault_uri}"
+    "COSMOSDB_URI"                       = "https://${azurerm_cosmosdb_account.cosmosdb.name}.documents.azure.com:443/"
+    "DOCKER_REGISTRY_SERVER_URL"         = "https://index.docker.io"
+    "WEBSITE_HTTPLOGGING_RETENTION_DAYS" = "7"
+  }
 
 
   tags = "${var.tags}"

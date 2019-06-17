@@ -18,5 +18,5 @@ variable "tags" {
 
 variable "devops_sp" {
   description = "sp allowed to access the kv"
-  type = "string"
+  type        = "string"
 }
